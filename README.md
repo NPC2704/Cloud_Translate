@@ -43,7 +43,7 @@
     ![](aws-translate-app/translate-app/assets/config_app.png)
 
 - Bước 5: Build và run file docker-compose
-  + cd aws-translate-app
+  + cd Cloud_Translate
   + docker-compose build
   + docker-compose up
 
