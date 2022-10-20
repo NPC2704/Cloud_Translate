@@ -2,9 +2,9 @@
 
 ## Đề tài: Tìm hiểu Amazon Translate và viết ứng dụng minh họa
 
-        Nguyễn Quốc Bảo     - 19133002
-        Võ Hoàng Khả Diệu   - 19133014
-        Trần Công Tuấn Mạnh - 19133035
+        Trần Nguyễn Huy Trường    - 20110590
+        Nguyễn Phước Công         - 20110447
+        Nguyễn Nhật Tính          - 20110576
 
 ## Các dịch vụ sử dụng
 
