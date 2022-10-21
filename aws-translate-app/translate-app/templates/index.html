@@ -379,18 +379,7 @@
                 alert("Vui lòng nhập văn bản bạn muốn dịch");
                 exit();
             }
-            con = {
-         channel: document.getElementById("channel").value,
-         sourceLanguage: document.getElementById("sourceLanguageCodeDropdown").value,
-         targetLanguage: document.getElementById("targetLanguageCodeDropdown").value,
-         liveChatUI: lc,
-         liveTranslationUI: lt,
-         liveChatUIContainer: lcc,
-         liveTranslationUIContainer: ltc,
-         cbSpeak: cbspeak,
-         follow: follow,
-         sendMessage: sendMessage
-       }
+           
             // get the language codes
             var sourceDropdown = document.getElementById("sourceLanguageCodeDropdown");
             var sourceLanguageCode = sourceDropdown.options[sourceDropdown.selectedIndex].value;
@@ -400,8 +389,8 @@
 
             var params = {
                 Text: inputText,
-                SourceLanguageCode: con.sourceLanguage,
-                TargetLanguageCode: con.targetLanguage
+                SourceLanguageCode: sourceLanguageCode,
+                TargetLanguageCode: targetLanguageCode
             };
 
             translate.translateText(params, function (err, data) {
@@ -509,8 +498,8 @@
         function clearInputs() {
             document.getElementById('inputText').value = "";
             document.getElementById('outputText').value = "";
-            document.getElementById("sourceLanguageCodeDropdown").value = con.sourceLanguage;
-            document.getElementById("targetLanguageCodeDropdown").value = con.targetLanguage;
+            document.getElementById("sourceLanguageCodeDropdown").value = sourceLanguageCode;
+            document.getElementById("targetLanguageCodeDropdown").value = targetLanguageCode;
             document.getElementById("filename").value = "";
         }
         function swapText() {
