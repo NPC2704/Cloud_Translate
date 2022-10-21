@@ -379,7 +379,18 @@
                 alert("Vui lòng nhập văn bản bạn muốn dịch");
                 exit();
             }
-
+            con = {
+         channel: document.getElementById("channel").value,
+         sourceLanguage: document.getElementById("sourceLanguage").value,
+         targetLanguage: document.getElementById("targetLanguage").value,
+         liveChatUI: lc,
+         liveTranslationUI: lt,
+         liveChatUIContainer: lcc,
+         liveTranslationUIContainer: ltc,
+         cbSpeak: cbspeak,
+         follow: follow,
+         sendMessage: sendMessage
+       }
             // get the language codes
             var sourceDropdown = document.getElementById("sourceLanguageCodeDropdown");
             var sourceLanguageCode = sourceDropdown.options[sourceDropdown.selectedIndex].value;
@@ -389,8 +400,8 @@
 
             var params = {
                 Text: inputText,
-                SourceLanguageCode: 'en',
-                TargetLanguageCode: 'vi'
+                SourceLanguageCode: con.sourceLanguage,
+                TargetLanguageCode: con.targetLanguage
             };
 
             translate.translateText(params, function (err, data) {
@@ -498,8 +509,8 @@
         function clearInputs() {
             document.getElementById('inputText').value = "";
             document.getElementById('outputText').value = "";
-            document.getElementById("sourceLanguageCodeDropdown").value = "auto";
-            document.getElementById("targetLanguageCodeDropdown").value = "vi";
+            document.getElementById("sourceLanguageCodeDropdown").value = con.sourceLanguage;
+            document.getElementById("targetLanguageCodeDropdown").value = con.targetLanguage;
             document.getElementById("filename").value = "";
         }
         function swapText() {
