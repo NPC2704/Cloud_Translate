@@ -389,8 +389,8 @@
 
             var params = {
                 Text: inputText,
-                SourceLanguageCode: 'auto',
-                TargetLanguageCode: 'auto'
+                SourceLanguageCode: 'en',
+                TargetLanguageCode: 'vi'
             };
 
             translate.translateText(params, function (err, data) {
@@ -499,7 +499,7 @@
             document.getElementById('inputText').value = "";
             document.getElementById('outputText').value = "";
             document.getElementById("sourceLanguageCodeDropdown").value = "auto";
-            document.getElementById("targetLanguageCodeDropdown").value = "auto";
+            document.getElementById("targetLanguageCodeDropdown").value = "vi";
             document.getElementById("filename").value = "";
         }
         function swapText() {
