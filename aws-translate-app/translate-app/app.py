@@ -44,5 +44,50 @@ def extractImage():
     print(responseJson)
     return render_template("index.html", jsonData=json.dumps(responseJson))
 
+@ app.route("/translatedocument", methods=["POST"])
+def extractDocument():
+    file = request.files.get("filename")
+    binaryFile = file.read()
+    textractclient = client()
+    response = textractclient.detect_document_text(
+        Document={
+            'Bytes': binaryFile
+        }
+    )
+    extractedText = ""
+    for block in response['Blocks']:
+        if block["BlockType"] == "LINE":
+            extractedText = extractedText+block["Text"]+" "
+    responseJson = {
+
+        "text": extractedText
+    }
+    print(responseJson)
+    return render_template("index.html", jsonData=json.dumps(responseJson))
+
+
+
+# @ app.route("/extractspeach", methods=["POST"])
+# def get_job(job_name, transcribe_client):
+#     """
+#     Gets details about a transcription job.
+
+#     :param job_name: The name of the job to retrieve.
+#     :param transcribe_client: The Boto3 Transcribe client.
+#     :return: The retrieved transcription job.
+#     """
+#     try:
+#         response = transcribe_client.get_transcription_job(
+#             TranscriptionJobName=job_name)
+#         job = response['TranscriptionJob']
+#         logger.info("Got job %s.", job['TranscriptionJobName'])
+#     except ClientError:
+#         logger.exception("Couldn't get job %s.", job_name)
+#         raise
+#     else:
+#         return job
+
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000)
