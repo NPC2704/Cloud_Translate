@@ -46,7 +46,7 @@ def extractImage():
 
 @ app.route("/translatedocument", methods=["POST"])
 def extractDocument():
-    file = request.files.get("filename")
+    file = request.files.get("filenameDocument")
     binaryFile = file.read()
     textractclient = client()
     response = textractclient.detect_document_text(
